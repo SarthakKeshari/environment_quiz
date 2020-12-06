@@ -20,12 +20,11 @@ if(isset($_POST['submit']))
             $db_pass='wyn04lcvFp';
             $db_name='vJl5oVSDWD';
         
-            //create connection
-            $conn = new mysqli($host, $dbUsername, $dbPassword, $dbname);
-        
-            //connect to the server and select database
-            mysqli_connect("remotemysql.com","vJl5oVSDWD","wyn04lcvFp");
-            mysqli_select_db($conn,"submit");
+            $conn=mysqli_connect($db_host,$db_user,$db_pass,$db_name);
+            if(!$conn )
+            {
+                die('Failed to connect mysql database'.mysqli_connect_error());
+            }
         
             $total_marks = 0;
             $marks_scored = 0;
