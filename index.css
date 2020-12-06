@@ -1,0 +1,123 @@
+@font-face{
+    font-family: Xmas;
+    src: url("XmasSweaterStitch-xXYq.ttf");
+}
+
+@font-face{
+    font-family: Roda;
+    src: url("RodaBamboo-AOgm.ttf");
+}
+
+body{
+    background: url(enviro_back.jpg);
+    background-size: cover;
+    backdrop-filter: blur(1px) opacity(80%) contrast(120%);
+}
+
+.back{
+    height: 100vh;
+    background-color: rgba(1, 94, 48, 0.233);
+}
+
+.title{
+    font-family: Xmas;
+    font-size: 5em;
+    font-weight: 900;
+    letter-spacing: 5px;
+    color: whitesmoke;
+    -webkit-text-stroke: 0.01px rgba(1, 75, 1, 0.185);
+}
+
+.title::first-letter{
+    font-family: Xmas;
+    font-size: 1.5em;
+    font-weight: 900;
+    letter-spacing: 5px;
+    color: whitesmoke;
+    /* -webkit-text-stroke: 100px darkgreen; */
+}
+
+.subtitle{
+    /* font-family: fantasy; */
+    font-size: 4em;
+    font-weight: 900;
+    letter-spacing: 5px;
+    margin-top: -80px;
+    color: whitesmoke;
+    stroke: darkgreen 10px solid;
+    -webkit-stroke: darkgreen 10px solid;
+    stroke-width: 100px;
+}
+
+.quote{
+    font-family: Roda;
+    font-size: 2em;
+    color: wheat;
+}
+
+.description{
+    font-size: 1.2em;
+}
+
+.startback{
+    background-color: rgba(0, 100, 0, 0.7);
+}
+
+.getstarted{
+    font-weight: 100;
+    font-size: 1.6em;
+    color: rgb(1, 1, 150);
+    text-decoration: none;
+}
+
+span{
+    margin-left: -7px;
+    animation: wave 2s infinite;
+}
+/* .a1 {
+    animation-delay: 0s;
+}
+.a2 {
+    animation-delay: .2s;
+}
+.a3 {
+    animation-delay: .4s;
+}
+.a4 {
+    animation-delay: .6s;
+}
+.a5 {
+    animation-delay: .8s;
+}
+.a6 {
+    animation-delay: 1s;
+}
+.a7 {
+    animation-delay: 1.2s;
+}
+.a8 {
+    animation-delay: 1.4s;
+}
+.a9 {
+    animation-delay: 1.6s;
+}
+.a10 {
+    animation-delay: 1.8s;
+}
+.a11 {
+    animation-delay: 2s;
+}
+
+@keyframes wave {
+    0%{
+        font-size: 1.05em;
+    }
+    50% {
+        font-size: 1em;
+        background-color: palevioletred;
+    }
+    100% {
+        font-size: 1.05em;
+        background-color: palevioletred;
+    }
+} */
