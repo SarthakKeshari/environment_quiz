@@ -24,7 +24,7 @@ if(isset($_POST['submit']))
             $conn = new mysqli($host, $dbUsername, $dbPassword, $dbname);
         
             //connect to the server and select database
-            mysqli_connect("localhost","root","");
+            mysqli_connect("remotemysql.com","vJl5oVSDWD","wyn04lcvFp");
             mysqli_select_db($conn,"submit");
         
             $total_marks = 0;
