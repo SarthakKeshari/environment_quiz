@@ -12,7 +12,7 @@
     <title>Environment Quizinal</title>
   </head>
   <body>
-    <img src="enviro_logo.png" alt="" class="logo " height="100px" width="100px">
+  <img src="enviro_logo.png" alt="" class="logom" height="100px" width="100px" style="position: absolute;top: 25px;left: 50px;">
     <div class="container text-center">
         <div class="row justify-content-end align-items-center">
             <div class="col-6 bg-dark">

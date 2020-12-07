@@ -75,15 +75,15 @@
                         <tbody>
                     
                     <?php
-                        $db_host='127.0.0.1';
-                        $db_user='root';
-                        $db_pass='';
-                        $db_name='environment_quiz';
+                        // $db_host='127.0.0.1';
+                        // $db_user='root';
+                        // $db_pass='';
+                        // $db_name='environment_quiz';
 
-                        // $db_host='remotemysql.com';
-                        // $db_user='vJl5oVSDWD';
-                        // $db_pass='wyn04lcvFp';
-                        // $db_name='vJl5oVSDWD';
+                        $db_host='remotemysql.com';
+                        $db_user='vJl5oVSDWD';
+                        $db_pass='wyn04lcvFp';
+                        $db_name='vJl5oVSDWD';
 
                         $conn=mysqli_connect($db_host,$db_user,$db_pass,$db_name);
                         if(!$conn )
