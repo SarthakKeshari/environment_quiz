@@ -7,12 +7,11 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
-    <link rel="stylesheet" href="contents.css">
+    <link rel="stylesheet" href="scorecard.css">
 
     <title>Environment Quizinal</title>
   </head>
   <body>
-  
   <div class="collapse" id="navbarToggleExternalContent">
     <div class="bg-dark p-4">
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -22,7 +21,7 @@
             <div class="collapse navbar-collapse show  d-flex justify-content-end text-right mr-5" id="navbarNavDropdown">
             <ul class="navbar-nav mr-5">
                 <li class="nav-item mr-4">
-                <a class="nav-link active" aria-current="page" href="contents.php">Home</a>
+                <a class="nav-link" aria-current="page" href="contents.php">Home</a>
                 </li>
                 <li class="nav-item mr-4">
                 <a class="nav-link" href="about.php">About Us</a>
@@ -31,7 +30,7 @@
                 <a class="nav-link" href="answers.php">Answers</a>
                 </li>
                 <li class="nav-item mr-4 dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
                     Profile
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -58,10 +57,22 @@
     <img src="enviro_logo.png" alt="" class="logom" height="100px" width="100px" style="position: absolute;top: 25px;left: 50px;">
   <div class="container text-center">
         <div class="row back">
-            <div class="col-12 p-4">
-                <p class="text-white h1">Practice</p>
+        <div class="col-12 p-4">
+                <p class="text-white h1">Score Card</p>
                 
                 <form class="row d-flex justify-content-center" method="get" action="quiz.php">
+
+                <table class="table m-5 text-success" style="font-size: 1.5em;">
+                        <thead>
+                            <tr>
+                            <th scope="col">S. No.</th>
+                            <th scope="col">Quiz</th>
+                            <th scope="col">Marks Scored</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Date and Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                     
                     <?php
                         $db_host='127.0.0.1';
@@ -82,28 +93,40 @@
 
                         // echo "YOYO";
 
-                        $sql='SELECT * from content';
+                        $sql='SELECT * from scorecard';
                         $query = mysqli_query($conn,$sql);
 
                         if(!$query)
                         {
                             die('error found'.mysqli_error($conn));
                         }
+
+                        $c=1;
     
                         while($row=mysqli_fetch_array($query))
                         {
-                    ?>
+                    ?>  
+                            <tr>
+                                <th scope="row"><?php echo $c?></th>
+                                <td><?php echo $row['quiz_no']?></td>
+                                <td><?php echo $row['marks_scored']?></td>
+                                <td><?php echo $row['total']?></td>
+                                <td><?php echo $row['datetime']?></td>
+                            </tr>
 
-                    <input type="submit" value="<?php echo $row['quiz_no']?>" name="quiz_no" class="col-3 m-5 d-flex text-center justify-content-center align-items-center quiz">
+                            
                     <?php
+                        $c++;
                         }
                     ?>
+
+                            </tbody>
+                        </table>
                 </form>
                 
             </div>
         </div>
   </div>
-
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper.js -->

@@ -1,0 +1,10 @@
+body{
+    background: url(scorecard_back.jpg);
+    background-size: cover;
+    backdrop-filter: blur(1px) opacity(50%) contrast(1.5);
+}
+
+.back{
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.75);
+}

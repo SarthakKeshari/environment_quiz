@@ -7,12 +7,11 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
-    <link rel="stylesheet" href="contents.css">
+    <link rel="stylesheet" href="answers.css">
 
     <title>Environment Quizinal</title>
   </head>
   <body>
-  
   <div class="collapse" id="navbarToggleExternalContent">
     <div class="bg-dark p-4">
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -22,13 +21,13 @@
             <div class="collapse navbar-collapse show  d-flex justify-content-end text-right mr-5" id="navbarNavDropdown">
             <ul class="navbar-nav mr-5">
                 <li class="nav-item mr-4">
-                <a class="nav-link active" aria-current="page" href="contents.php">Home</a>
+                <a class="nav-link" aria-current="page" href="contents.php">Home</a>
                 </li>
                 <li class="nav-item mr-4">
                 <a class="nav-link" href="about.php">About Us</a>
                 </li>
                 <li class="nav-item mr-4">
-                <a class="nav-link" href="answers.php">Answers</a>
+                <a class="nav-link active" href="answers.php">Answers</a>
                 </li>
                 <li class="nav-item mr-4 dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
@@ -58,10 +57,10 @@
     <img src="enviro_logo.png" alt="" class="logom" height="100px" width="100px" style="position: absolute;top: 25px;left: 50px;">
   <div class="container text-center">
         <div class="row back">
-            <div class="col-12 p-4">
-                <p class="text-white h1">Practice</p>
+        <div class="col-12 p-4">
+        <p class="text-white h1">Answers</p>
                 
-                <form class="row d-flex justify-content-center" method="get" action="quiz.php">
+                <form class="row d-flex justify-content-center" method="get" action="quiz_answers.php">
                     
                     <?php
                         $db_host='127.0.0.1';
@@ -92,10 +91,31 @@
     
                         while($row=mysqli_fetch_array($query))
                         {
+                            $quiz=$row['quiz_no'];
+                            $sql1='SELECT * from scorecard where quiz_no="'.$quiz.'"';
+                            $query1 = mysqli_query($conn,$sql1);
+
+                            // print_r($query1);
+
+                            if(!$query1)
+                            {
+                                die('error found'.mysqli_error($conn));
+                            }
+
+                            $c=true;
+                            
+                            while($row1=mysqli_fetch_array($query1) && $c==true)
+                            {
+
+                            // print_r($row1);  
+                            $c=false;
+
+                            
                     ?>
 
                     <input type="submit" value="<?php echo $row['quiz_no']?>" name="quiz_no" class="col-3 m-5 d-flex text-center justify-content-center align-items-center quiz">
                     <?php
+                            }
                         }
                     ?>
                 </form>
@@ -103,7 +123,6 @@
             </div>
         </div>
   </div>
-
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper.js -->

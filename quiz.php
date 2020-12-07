@@ -52,17 +52,17 @@
 <body>
       <nav>
       <div class="row text-center">
-        <img src="img/logo.png" alt="" class="rounded mx-auto d-block" width="75%">
+        <img src="enviro_logo.png" alt="" class="m-2 rounded mx-auto d-block" width="50%">
     </div>
             <br><br>
             <div class="user">
-                <!-- <img src="" alt=""> -->
+                <!-- <img src="enviro_logo.png" alt="" height="30px"> -->
                 <p></p>
             </div>
 
-            <div style="height: 30px;">
+            <!-- <div style="height: 20px;">
 
-            </div>
+            </div> -->
 
             <div class="row p-3 button_area justify-content-center">
                 <?php
@@ -148,15 +148,15 @@
 
     <?php
 
-            // $db_host = "localhost";
-            // $db_user = "root";
-            // $db_pass = "";
-            // $db_name = "environment_quiz";
+            $db_host = "localhost";
+            $db_user = "root";
+            $db_pass = "";
+            $db_name = "environment_quiz";
 
-            $db_host='remotemysql.com';
-            $db_user='vJl5oVSDWD';
-            $db_pass='wyn04lcvFp';
-            $db_name='vJl5oVSDWD';
+            // $db_host='remotemysql.com';
+            // $db_user='vJl5oVSDWD';
+            // $db_pass='wyn04lcvFp';
+            // $db_name='vJl5oVSDWD';
         
             $conn=mysqli_connect($db_host,$db_user,$db_pass,$db_name);
             if(!$conn )

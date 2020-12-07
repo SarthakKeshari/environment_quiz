@@ -9,16 +9,16 @@ if(isset($_POST['submit']))
             //     echo "Question number : ".((((($mul_fact*$x+$reg)%$no_of_questions))%$no_of_questions+1))."<br>";
             // }
 
-            // $host = "localhost";
-            // $dbUsername = "root";
-            // $dbPassword = "";
-            // $dbname = "environment_quiz";
+            $db_host = "localhost";
+            $db_user = "root";
+            $db_pass = "";
+            $db_name = "environment_quiz";
 
 
-            $db_host='remotemysql.com';
-            $db_user='vJl5oVSDWD';
-            $db_pass='wyn04lcvFp';
-            $db_name='vJl5oVSDWD';
+            // $db_host='remotemysql.com';
+            // $db_user='vJl5oVSDWD';
+            // $db_pass='wyn04lcvFp';
+            // $db_name='vJl5oVSDWD';
         
             $conn=mysqli_connect($db_host,$db_user,$db_pass,$db_name);
             if(!$conn )
@@ -46,6 +46,13 @@ if(isset($_POST['submit']))
                 }
 
             }
+
+            // echo 'HELLO';
+    
+            $sql1="INSERT INTO scorecard (quiz_no,marks_scored,total) VALUES ('$quiz','$marks_scored','$total_marks')";
+            $query1 = mysqli_query($conn,$sql1);
+
+            // echo 'HI';
         
 ?>
 
@@ -93,14 +100,16 @@ if(isset($_POST['submit']))
     -->
   </body>
 </html>
-<?php    
+<?php   
+    
 }
 else{
     echo 'Not Attempted';
 }
+
 ?>
 
 <script>
          setTimeout(function(){window.history.go(-2);
-         }, 10000);
+         }, 5000);
 </script>
