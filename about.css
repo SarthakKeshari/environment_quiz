@@ -1,0 +1,10 @@
+body{
+    background: url(version_back.jpg);
+    background-size: cover;
+    backdrop-filter: blur(1px) opacity(40%);
+}
+
+.back{
+    /* height: 100vh; */
+    background-color: rgba(1, 94, 48, 0.233);
+}

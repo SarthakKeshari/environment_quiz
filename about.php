@@ -7,11 +7,12 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
-    <link rel="stylesheet" href="scorecard.css">
+    <link rel="stylesheet" href="about.css">
 
     <title>Environment Quizinal</title>
   </head>
   <body>
+  
   <div class="collapse" id="navbarToggleExternalContent">
     <div class="bg-dark p-4">
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -24,13 +25,13 @@
                 <a class="nav-link" aria-current="page" href="contents.php">Home</a>
                 </li>
                 <li class="nav-item mr-4">
-                <a class="nav-link" href="about.php">About Us</a>
+                <a class="nav-link active" href="about.php">About Us</a>
                 </li>
                 <li class="nav-item mr-4">
                 <a class="nav-link" href="answers.php">Answers</a>
                 </li>
                 <li class="nav-item mr-4 dropdown">
-                <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
                     Profile
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -57,76 +58,91 @@
     <img src="enviro_logo.png" alt="" class="logom" height="100px" width="100px" style="position: absolute;top: 25px;left: 50px;">
   <div class="container text-center">
         <div class="row back">
-        <div class="col-12 p-4">
-                <p class="text-white h1">Score Card</p>
-                
-                <form class="row d-flex justify-content-center" method="get" action="quiz.php">
+            <div class="col-12 p-4">
+                <p class="text-white h1 pb-1">Version Control</p>
+                <hr><hr><hr><hr>
 
-                <table class="table m-5 text-success" style="font-size: 1.5em;">
-                        <thead>
-                            <tr>
-                            <th scope="col">S. No.</th>
-                            <th scope="col">Quiz</th>
-                            <th scope="col">Marks Scored</th>
-                            <th scope="col">Total</th>
-                            <th scope="col">Date and Time</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                <div class="row d-flex justify-content-center">
                     
-                    <?php
-                        $db_host='127.0.0.1';
-                        $db_user='root';
-                        $db_pass='';
-                        $db_name='environment_quiz';
+                        <?php
+                            $db_host='127.0.0.1';
+                            $db_user='root';
+                            $db_pass='';
+                            $db_name='environment_quiz';
 
-                        // $db_host='remotemysql.com';
-                        // $db_user='vJl5oVSDWD';
-                        // $db_pass='wyn04lcvFp';
-                        // $db_name='vJl5oVSDWD';
+                            // $db_host='remotemysql.com';
+                            // $db_user='vJl5oVSDWD';
+                            // $db_pass='wyn04lcvFp';
+                            // $db_name='vJl5oVSDWD';
 
-                        $conn=mysqli_connect($db_host,$db_user,$db_pass,$db_name);
-                        if(!$conn )
-                        {
-                            die('Failed to connect mysql database'.mysqli_connect_error());
-                        }
+                            $conn=mysqli_connect($db_host,$db_user,$db_pass,$db_name);
+                            if(!$conn )
+                            {
+                                die('Failed to connect mysql database'.mysqli_connect_error());
+                            }
 
-                        // echo "YOYO";
+                            // echo "YOYO";
 
-                        $sql='SELECT * from scorecard';
-                        $query = mysqli_query($conn,$sql);
+                            ?>
 
-                        if(!$query)
+                            <p class="text-white h3">Version 1.0</p>
+
+                            <?php
+
+                            $sql1='SELECT * from version_state where version=1';
+                            $query1 = mysqli_query($conn,$sql1);
+
+                            if(!$query1)
+                            {
+                                die('error found'.mysqli_error($conn));
+                            }
+
+
+        
+                            while($row1=mysqli_fetch_array($query1))
+                            {
+                        ?>
+                        
+                                <div class="col-3 m-4">
+                                    <img class="" src="<?php echo $row1['image']?>" alt="" height="150px">
+                                </div>
+
+                        <?php
+                            }
+                        ?>
+
+                        <hr>
+
+                        <p class="text-white h3 pt-5">Version 2.0</p>
+
+                        <?php
+
+                        $sql1='SELECT * from version_state where version=2';
+                        $query1 = mysqli_query($conn,$sql1);
+
+                        if(!$query1)
                         {
                             die('error found'.mysqli_error($conn));
                         }
 
-                        $c=1;
-    
-                        while($row=mysqli_fetch_array($query))
+
+
+                        while($row1=mysqli_fetch_array($query1))
                         {
-                    ?>  
-                            <tr>
-                                <th scope="row"><?php echo $c?></th>
-                                <td><?php echo $row['quiz_no']?></td>
-                                <td><?php echo $row['marks_scored']?></td>
-                                <td><?php echo $row['total']?></td>
-                                <td><?php echo $row['datetime']?></td>
-                            </tr>
+                        ?>
 
-                            
-                    <?php
-                        $c++;
+                            <div class="col-3 m-4">
+                                <img class="" src="<?php echo $row1['image']?>" alt="" height="150px">
+                            </div>
+
+                        <?php
                         }
-                    ?>
-
-                            </tbody>
-                        </table>
-                </form>
-                
+                        ?>
+                    </div>
             </div>
         </div>
   </div>
+
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper.js -->
